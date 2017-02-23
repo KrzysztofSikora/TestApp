@@ -5,26 +5,72 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 public class NoteActivity extends AppCompatActivity {
+
+    EditText et;
+    String text = "";
+    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("aktywnosc", "onCreate");
         setContentView(R.layout.activity_note);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        et = (EditText) findViewById(R.id.editText);
+//        if(!et.equals("")) {
+//            et.setText(text);
+//        }
+et.setText(bundle.getString("et"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    protected void onStart() {
+        Log.d("aktywnosc", "onStart");
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d("aktywnosc", "onResume");
+
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d("aktywnosc", "onPause");
+//       text = et.getText().toString();
+        bundle.putString("et", et.getText().toString());
+        Log.d("test", text);
+
+        super.onPause();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.d("aktywnosc", "onRestart");
+
+        super.onRestart();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d("aktywnosc", "onStop");
+
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d("aktywnosc", "onDestroy");
+
+        super.onDestroy();
+    }
 }

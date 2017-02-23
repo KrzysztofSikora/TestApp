@@ -13,4 +13,8 @@
     tools:context="pl.krzysztofsikora.testapp.NoteActivity"
     tools:showIn="@layout/activity_note">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/editText"/>
 </RelativeLayout>
