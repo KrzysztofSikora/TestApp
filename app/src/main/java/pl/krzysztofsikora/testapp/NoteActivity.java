@@ -26,8 +26,7 @@ public class NoteActivity extends AppCompatActivity {
     EditText et;
     String text = "";
     Bundle bundle = new Bundle();
-    private String path = Environment.getExternalStorageDirectory().toString() + "/DigitalZombieLab";
-//private String path = Environment.getExternalStorageDirectory().toString();
+    private String path = Environment.getExternalStorageDirectory().toString() + "/DigitalZombieLab/Druga";
 
     private final int MEMORY_ACCESS = 5;
 
@@ -137,6 +136,7 @@ public class NoteActivity extends AppCompatActivity {
 
     public void createDir() {
         File folder = new File(path);
+
         if (!folder.exists()) {
             try {
                 folder.mkdir();
