@@ -156,6 +156,7 @@ public class NoteActivity extends AppCompatActivity {
             myOutWriter.append(et.getText());
             myOutWriter.close();
             fOut.close();
+            Toast.makeText(getApplicationContext(), "Save text message" + et.getText(), Toast.LENGTH_LONG).show();
 
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), e.toString() + "create file", Toast.LENGTH_LONG).show();
