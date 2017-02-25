@@ -2,6 +2,7 @@ package pl.krzysztofsikora.testapp;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -21,14 +22,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 
-public class NoteActivity extends AppCompatActivity {
+public class NoteActivity extends AppCompatActivity implements CommonColors {
 
     EditText et;
     String text = "";
     Bundle bundle = new Bundle();
     private String path = Environment.getExternalStorageDirectory().toString() + "/DigitalZombieLab/Druga";
 
-    private final int MEMORY_ACCESS = 5;
+//    private final int MEMORY_ACCESS = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,30 +38,33 @@ public class NoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_note);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setNaviBarColor();
+
         et = (EditText) findViewById(R.id.editText);
         et.setText(bundle.getString("et"));
-        if(ActivityCompat.shouldShowRequestPermissionRationale(NoteActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)){
 
-        }else {
-           ActivityCompat.requestPermissions(NoteActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MEMORY_ACCESS);
-        }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        if(ActivityCompat.shouldShowRequestPermissionRationale(NoteActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+//
+//        }else {
+//           ActivityCompat.requestPermissions(NoteActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MEMORY_ACCESS);
+//        }
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case MEMORY_ACCESS:
-            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ){
-
-            }else {
-                Toast.makeText(getApplicationContext(), "Jeśli nie zostanie wyrażona zgoda na dostęp do pamięci, nie będzie możliwości zapisania pliku!", Toast.LENGTH_LONG).show();
-
-            }
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+////        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        switch (requestCode) {
+//            case MEMORY_ACCESS:
+//            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ){
+//
+//            }else {
+//                Toast.makeText(getApplicationContext(), "Jeśli nie zostanie wyrażona zgoda na dostęp do pamięci, nie będzie możliwości zapisania pliku!", Toast.LENGTH_LONG).show();
+//
+//            }
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -161,6 +165,13 @@ public class NoteActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), e.toString() + "create file", Toast.LENGTH_LONG).show();
 
+        }
+    }
+
+    @Override
+    public void setNaviBarColor() {
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
     }
 }
