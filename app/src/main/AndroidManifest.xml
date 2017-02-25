@@ -3,7 +3,7 @@
     package="pl.krzysztofsikora.testapp">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -37,6 +37,15 @@
         <activity
             android:name=".NoteActivity"
             android:label="@string/title_activity_note"
+            android:parentActivityName=".ToysActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.krzysztofsikora.testapp.ToysActivity" />
+        </activity>
+        <activity
+            android:name=".FishesActivity"
+            android:label="@string/title_activity_fiches"
             android:parentActivityName=".ToysActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

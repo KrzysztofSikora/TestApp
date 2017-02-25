@@ -7,10 +7,10 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -44,35 +44,31 @@ public class ToysActivity extends AppCompatActivity implements CommonColors {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                       insertPermissionsWrapper();
+            insertPermissionsWrapper();
     }
 
 
-
-
-//
-@Override
-public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-    switch (requestCode) {
-        case MULTIPLE_PERMISSIONS:
-        {
-            Map<String, Integer> perms = new HashMap<>();
-            perms.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
-            perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
-            for (int i = 0; i < permissions.length; i++)
-                perms.put(permissions[i], grantResults[i]);
-            if (perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                    && perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-            {
-                Toast.makeText(ToysActivity.this, "Nie przydzielono któregoś pozwolenia", Toast.LENGTH_SHORT)
-                        .show();
+    //
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case MULTIPLE_PERMISSIONS: {
+                Map<String, Integer> perms = new HashMap<>();
+                perms.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                for (int i = 0; i < permissions.length; i++)
+                    perms.put(permissions[i], grantResults[i]);
+                if (perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                        && perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(ToysActivity.this, "Nie przydzielono któregoś pozwolenia", Toast.LENGTH_SHORT)
+                            .show();
+                }
             }
+            break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-        break;
-        default:
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-}
 
     private void insertPermissionsWrapper() {
         List<String> permissionsNeeded = new ArrayList<>();
@@ -127,18 +123,33 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions, in
 //
 
 
-
-
-
-
-
-
-
-
     @Override
     public void setNaviBarColor() {
-        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
+    }
+
+
+    public void click(View view) {
+
+        Intent intent;
+
+        int id = view.getId();
+        String idFromView = Integer.toString(id);
+        String idFromXML = Integer.toString(R.id.fishesBtn);
+
+        Log.d("From View", idFromView);
+        Log.d("FROM XML", idFromXML);
+
+
+        switch (view.getId()) {
+
+            case R.id.fishesBtn:
+                intent = new Intent(ToysActivity.this, FishesActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }
