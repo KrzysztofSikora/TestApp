@@ -1,5 +1,9 @@
 package pl.krzysztofsikora.testapp;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -36,6 +40,26 @@ public class CountdownActivity extends AppCompatActivity {
         value = (EditText) findViewById(R.id.NotifyValueET);
         start = (Button) findViewById(R.id.startBtn);
     }
+
+
+    public void click(View view) {
+        createNotification();
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void createNotification() {
+        Notification notifi = new Notification.Builder(this)
+        .setContentTitle(title.getText())
+                .setSmallIcon(R.drawable.ic_launcher)
+        .setContentText(body.getText()).build();
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(0, notifi);
+
+
+    }
+
 
 
 }
