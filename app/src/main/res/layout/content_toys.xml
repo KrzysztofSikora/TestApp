@@ -34,4 +34,14 @@
         android:layout_centerHorizontal="true"
         android:onClick="click"/>
 
+    <Button
+        android:id="@+id/countdownBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"
+        android:text="@string/countdown"
+        android:onClick="click"/>
+
 </RelativeLayout>

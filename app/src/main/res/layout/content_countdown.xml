@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="pl.krzysztofsikora.testapp.CountdownActivity"
+    tools:showIn="@layout/activity_countdown">
+
+    <EditText
+        android:id="@+id/NotifyTitleET"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name1"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginBottom="36dp"
+        android:layout_above="@+id/NotifyBodyET"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/NotifyBodyET"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name2"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="91dp"
+        android:layout_above="@+id/startBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp" />
+
+    <Button
+        android:id="@+id/startBtn"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="@string/start"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="156dp"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/NotifyValueET"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/NotifyValueET"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name4"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="233dp"
+        android:layout_marginBottom="203dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

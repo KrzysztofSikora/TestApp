@@ -149,6 +149,10 @@ public class ToysActivity extends AppCompatActivity implements CommonColors {
                 intent = new Intent(ToysActivity.this, FishesActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.countdownBtn:
+                intent = new Intent(ToysActivity.this, CountdownActivity.class);
+                startActivity(intent);
+                break;
 
         }
     }
