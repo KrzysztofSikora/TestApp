@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -43,23 +44,41 @@ public class CountdownActivity extends AppCompatActivity {
 
 
     public void click(View view) {
-        createNotification();
+        long startTime = Long.parseLong(value.getText().toString());
+        startTime = startTime * 1000;
+        new CountDownTimer(startTime, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                start.setEnabled(false);
+                value.setEnabled(false);
+                value.setText("" + millisUntilFinished/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                createNotification();
+                start.setEnabled(true);
+                value.setEnabled(true);
+
+            }
+        }.start();
+
     }
 
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void createNotification() {
         Notification notifi = new Notification.Builder(this)
-        .setContentTitle(title.getText())
+                .setContentTitle(title.getText())
                 .setSmallIcon(R.drawable.ic_launcher)
-        .setContentText(body.getText()).build();
+                .setContentText(body.getText()).build();
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(0, notifi);
 
 
     }
-
 
 
 }
