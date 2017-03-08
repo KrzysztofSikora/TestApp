@@ -72,6 +72,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.krzysztofsikora.testapp.ToysActivity" />
         </activity>
+        <activity
+            android:name=".PrimeNumberActivity"
+            android:label="@string/title_activity_prime_number"
+            android:parentActivityName=".ToysActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.krzysztofsikora.testapp.ToysActivity" />
+        </activity>
     </application>
 
 </manifest>

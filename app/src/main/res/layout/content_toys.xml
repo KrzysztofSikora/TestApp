@@ -44,4 +44,14 @@
         android:text="@string/countdown"
         android:onClick="click"/>
 
+    <Button
+        android:id="@+id/primeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdownBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="@string/prime"
+        android:onClick="click"/>
+
 </RelativeLayout>

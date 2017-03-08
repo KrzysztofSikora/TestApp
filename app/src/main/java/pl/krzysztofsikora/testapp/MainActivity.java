@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements CommonColors {
                 intent = new Intent(MainActivity.this, ToysActivity.class);
                 startActivity(intent);
                 break;
+
         }
     }
 
