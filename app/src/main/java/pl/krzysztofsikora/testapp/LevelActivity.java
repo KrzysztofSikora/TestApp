@@ -67,7 +67,6 @@ public class LevelActivity extends AppCompatActivity implements SensorEventListe
         if(event.values[0] > 0 && event.values[0] < 2)
            if(!mediaPlayer.isPlaying())
                mediaPlayer.start();
-        //
     }
 
     @Override
