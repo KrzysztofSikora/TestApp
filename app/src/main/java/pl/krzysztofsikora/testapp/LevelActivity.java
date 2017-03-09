@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,9 +17,12 @@ import android.widget.TextView;
 
 public class LevelActivity extends AppCompatActivity implements SensorEventListener{
 
+    Context context = this;
+    MediaPlayer mediaPlayer;
+
     private TextView level;
     private SensorManager sensorManager;
-    private Sensor lightSensor;
+    private Sensor accelerometerSensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +40,18 @@ public class LevelActivity extends AppCompatActivity implements SensorEventListe
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mediaPlayer = MediaPlayer.create(context, R.raw.piano);
         level = (TextView) findViewById(R.id.levelTV);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
@@ -57,7 +62,11 @@ public class LevelActivity extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        level.setText(" " + event.values[0]);
+        level.setText(" " + event.values[0] + "\n"+ event.values[1] + "\n" + event.values[2]);
+
+        if(event.values[0] > 0 && event.values[0] < 2)
+           if(!mediaPlayer.isPlaying())
+               mediaPlayer.start();
     }
 
     @Override
