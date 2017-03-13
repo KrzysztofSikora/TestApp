@@ -21,4 +21,8 @@
     <string name="prime">Prime number</string>
     <string name="title_activity_level">LevelActivity</string>
     <string name="title_activity_draw">DrawActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="takePhoto">Take photo</string>
+    <string name="openGallery">Open Gallery</string>
+    <string name="camera">Camera</string>
 </resources>

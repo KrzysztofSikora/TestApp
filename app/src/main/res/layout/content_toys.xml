@@ -38,21 +38,22 @@
         android:id="@+id/countdownBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="106dp"
         android:text="@string/countdown"
-        android:onClick="click"/>
+        android:onClick="click"
+        android:layout_below="@+id/drawBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/primeBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/countdownBtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="16dp"
         android:text="@string/prime"
-        android:onClick="click"/>
+        android:onClick="click"
+        android:layout_below="@+id/countdownBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/sensorBtn"
@@ -68,10 +69,19 @@
         android:id="@+id/drawBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
         android:text="Draw"
+        android:onClick="click"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/cameraBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sensorBtn"
+        android:layout_centerHorizontal="true"
+        android:text="@string/camera"
         android:onClick="click"/>
 
 </RelativeLayout>
