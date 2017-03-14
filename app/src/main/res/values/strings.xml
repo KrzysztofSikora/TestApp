@@ -25,4 +25,13 @@
     <string name="takePhoto">Take photo</string>
     <string name="openGallery">Open Gallery</string>
     <string name="camera">Camera</string>
+
+    <string-array name="activities">
+        <item>Fiszki</item>
+        <item>Odliczanie</item>
+        <item>Liczba pierwsza</item>vv
+        <item>Poziomica</item>
+        <item>Rysowanie</item>
+        <item>Kamera</item>
+    </string-array>
 </resources>

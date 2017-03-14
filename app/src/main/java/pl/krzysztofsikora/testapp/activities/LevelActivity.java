@@ -1,4 +1,4 @@
-package pl.krzysztofsikora.testapp;
+package pl.krzysztofsikora.testapp.activities;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import pl.krzysztofsikora.testapp.R;
 
 public class LevelActivity extends AppCompatActivity implements SensorEventListener{
 

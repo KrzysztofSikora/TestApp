@@ -1,9 +1,10 @@
-package pl.krzysztofsikora.testapp;
+package pl.krzysztofsikora.testapp.activities;
 
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,10 +23,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import pl.krzysztofsikora.testapp.CommonColors;
+import pl.krzysztofsikora.testapp.R;
+
 public class ToysActivity extends AppCompatActivity implements CommonColors {
 
 
     final private int MULTIPLE_PERMISSIONS = 12345;
+    private ListView listView;
+    private String[] activities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +54,32 @@ public class ToysActivity extends AppCompatActivity implements CommonColors {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             insertPermissionsWrapper();
+        listView = (ListView) findViewById(R.id.listView);
+        initResources();
+        initActivitiesListView();
+
+    }
+
+    private void initResources() {
+        Resources resources = getResources();
+        activities = resources.getStringArray(R.array.activities);
+    }
+
+    private void initActivitiesListView() {
+        listView.setAdapter(new ArrayAdapter<String>(
+                getApplicationContext(),
+                android.R.layout.simple_list_item_1,
+                activities
+        ));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                click(position);
+            }
+        });
     }
 
 
-    //
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
@@ -131,45 +162,36 @@ public class ToysActivity extends AppCompatActivity implements CommonColors {
     }
 
 
-    public void click(View view) {
+    public void click(int pos) {
 
         Intent intent;
 
-        int id = view.getId();
-        String idFromView = Integer.toString(id);
-        String idFromXML = Integer.toString(R.id.fishesBtn);
 
-        Log.d("From View", idFromView);
-        Log.d("FROM XML", idFromXML);
+        switch (pos) {
 
-
-        switch (view.getId()) {
-
-            case R.id.fishesBtn:
+            case 0:
                 intent = new Intent(ToysActivity.this, FishesActivity.class);
-                startActivity(intent);
                 break;
-            case R.id.countdownBtn:
+            case 1:
                 intent = new Intent(ToysActivity.this, CountdownActivity.class);
-                startActivity(intent);
                 break;
-            case R.id.primeBtn:
+            case 2:
                 intent = new Intent(ToysActivity.this, PrimeNumberActivity.class);
-                startActivity(intent);
                 break;
-            case R.id.sensorBtn:
+            case 3:
                 intent = new Intent(ToysActivity.this, LevelActivity.class);
-                startActivity(intent);
                 break;
-            case R.id.drawBtn:
+            case 4:
                 intent = new Intent(ToysActivity.this, DrawActivity.class);
-                startActivity(intent);
                 break;
-            case R.id.cameraBtn:
+            case 5:
                 intent = new Intent(ToysActivity.this, CameraActivity.class);
-                startActivity(intent);
+                break;
+            default:
+                intent = new Intent(ToysActivity.this, CameraActivity.class);
                 break;
 
         }
+        startActivity(intent);
     }
 }

@@ -1,4 +1,4 @@
-package pl.krzysztofsikora.testapp;
+package pl.krzysztofsikora.testapp.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.InputStream;
+
+import pl.krzysztofsikora.testapp.R;
 
 public class CameraActivity extends AppCompatActivity {
 

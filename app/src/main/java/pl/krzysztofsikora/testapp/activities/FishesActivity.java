@@ -1,4 +1,4 @@
-package pl.krzysztofsikora.testapp;
+package pl.krzysztofsikora.testapp.activities;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FilenameFilter;
+
+import pl.krzysztofsikora.testapp.CommonColors;
+import pl.krzysztofsikora.testapp.R;
 
 public class FishesActivity extends AppCompatActivity implements CommonColors {
 

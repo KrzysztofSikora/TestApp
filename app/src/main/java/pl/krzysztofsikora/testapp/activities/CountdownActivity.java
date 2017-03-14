@@ -1,4 +1,4 @@
-package pl.krzysztofsikora.testapp;
+package pl.krzysztofsikora.testapp.activities;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
@@ -13,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import pl.krzysztofsikora.testapp.R;
 
 public class CountdownActivity extends AppCompatActivity {
 

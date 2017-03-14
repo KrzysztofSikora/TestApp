@@ -1,4 +1,4 @@
-package pl.krzysztofsikora.testapp;
+package pl.krzysztofsikora.testapp.activities;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -21,6 +21,9 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+
+import pl.krzysztofsikora.testapp.CommonColors;
+import pl.krzysztofsikora.testapp.R;
 
 public class NoteActivity extends AppCompatActivity implements CommonColors {
 

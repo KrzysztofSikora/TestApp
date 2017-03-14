@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="pl.krzysztofsikora.testapp.PrimeNumberActivity"
+    tools:context="pl.krzysztofsikora.testapp.activities.PrimeNumberActivity"
     tools:showIn="@layout/activity_prime_number">
 
     <EditText
