@@ -63,7 +63,10 @@ public class MainActivity extends AppCompatActivity implements CommonColors {
                 intent = new Intent(MainActivity.this, ToysActivity.class);
                 startActivity(intent);
                 break;
-
+            case R.id.webBtn:
+                intent = new Intent(MainActivity.this, WebActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 

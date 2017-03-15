@@ -40,4 +40,14 @@
         android:layout_marginTop="41dp"
         android:id="@+id/secondBtn"
         android:onClick="click"/>
+
+    <Button
+        android:id="@+id/webBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="Button"
+        android:onClick="click"/>
 </RelativeLayout>

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -109,6 +110,17 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.krzysztofsikora.testapp.activities.ToysActivity" />
+        </activity>
+        <activity
+            android:name=".activities.WebActivity"
+            android:label="@string/title_activity_web"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
