@@ -35,4 +35,5 @@
         <item>Kamera</item>
     </string-array>
     <string name="title_activity_web">WebActivity</string>
+    <string name="intro">Tutorial android</string>
 </resources>
