@@ -114,7 +114,6 @@
         <activity
             android:name=".activities.WebActivity"
             android:label="@string/title_activity_web"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
